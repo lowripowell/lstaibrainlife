@@ -7,3 +7,8 @@ This repository contains a simple Brainlife wrapper for running **LST-AI**
 The scientific code for LST-AI is developed here:  
 https://github.com/CompImg/LST-AI  
 This wrapper does **not** modify LST-AI — it only provides Brainlife integration.
+
+## Inputs
+
+- T1-weighted image (.nii or .nii.gz)  
+- FLAIR image (.nii or .nii.gz)
