@@ -10,5 +10,5 @@ This wrapper does **not** modify LST-AI — it only provides Brainlife integrati
 
 ## Inputs
 
-- T1-weighted image (.nii or .nii.gz)  
-- FLAIR image (.nii or .nii.gz)
+- T1-weighted image (.nii.gz)  
+- FLAIR image (.nii.gz)
