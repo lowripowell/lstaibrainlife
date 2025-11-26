@@ -2,7 +2,7 @@
   "name": "LST-AI Brainlife",
   "label": "LST-AI (T1 + FLAIR)",
   "description": "Runs the LST-AI MS lesion segmentation tool using T1 and FLAIR MRI images.",
-  "author": "Lowri POwell",
+  "author": "Lowri Powell",
 
   "docker": "jqmcginnis/lst-ai:v1.2.0",
 
@@ -12,11 +12,15 @@
     {
       "id": "T1_input",
       "description": "T1-weighted MRI (zipped NIfTI)",
+      "datatype": "neuro/mri",
+      "datatype_tags": ["T1w"],
       "required": true
     },
     {
       "id": "FLAIR_input",
       "description": "FLAIR MRI (zipped NIfTI)",
+      "datatype": "neuro/mri",
+      "datatype_tags": ["FLAIR"],
       "required": true
     }
   ],
