@@ -1,0 +1,61 @@
+#!/bin/bash
+set -e
+
+# ------------------------------------------------------------
+# Brainlife main script for LST-AI
+# ------------------------------------------------------------
+# This script:
+# 1. Reads config.json (provided automatically by Brainlife)
+# 2. Extracts paths to the T1 and FLAIR inputs
+# 3. Runs the LST-AI command:
+#       lst --t1 <T1> --flair <FLAIR> --output <OUTPUT_DIR>
+# 4. Writes all output to the Brainlife 'output/' directory
+# ------------------------------------------------------------
+
+echo "------------------------------------------------------------"
+echo " Running LST-AI Brainlife App "
+echo "------------------------------------------------------------"
+
+# ------------------------------------------------------------
+# 1. Read the T1 and FLAIR input paths from config.json
+# ------------------------------------------------------------
+
+# Extract the T1 path
+T1=$(jq -r '.inputs["T1_input"]' config.json)
+if [ "$T1" == "null" ]; then
+    echo "ERROR: T1_input not found in config.json"
+    exit 1
+fi
+
+# Extract the FLAIR path
+FLAIR=$(jq -r '.inputs["FLAIR_input"]' config.json)
+if [ "$FLAIR" == "null" ]; then
+    echo "ERROR: FLAIR_input not found in config.json"
+    exit 1
+fi
+
+echo "T1 input:    $T1"
+echo "FLAIR input: $FLAIR"
+
+# ------------------------------------------------------------
+# 2. Set the output directory
+# ------------------------------------------------------------
+
+OUTDIR="output"
+mkdir -p "$OUTDIR"
+
+echo "Output directory: $OUTDIR"
+
+# ------------------------------------------------------------
+# 3. Run the LST-AI command
+# ------------------------------------------------------------
+
+echo ""
+echo "Running LST-AI..."
+lst --t1 "$T1" --flair "$FLAIR" --output "$OUTDIR"
+
+echo ""
+echo "------------------------------------------------------------"
+echo " LST-AI completed successfully! "
+echo " Results saved in: $OUTDIR"
+echo "------------------------------------------------------------"
