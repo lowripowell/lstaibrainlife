@@ -12,3 +12,7 @@ This wrapper does **not** modify LST-AI — it only provides Brainlife integrati
 
 - T1-weighted image (.nii.gz)  
 - FLAIR image (.nii.gz)
+
+- ## Outputs
+
+- LST-AI lesion segmentation and related output files
