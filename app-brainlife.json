@@ -3,11 +3,8 @@
   "label": "LST-AI (T1 + FLAIR)",
   "description": "Runs the LST-AI MS lesion segmentation tool using T1 and FLAIR MRI images.",
   "author": "Lowri Powell",
-
   "docker": "jqmcginnis/lst-ai:v1.2.0",
-
   "cmd": "bash main",
-
   "inputs": [
     {
       "id": "T1_input",
@@ -24,11 +21,11 @@
       "required": true
     }
   ],
-
   "outputs": [
     {
       "id": "output",
-      "description": "Output directory containing LST-AI results."
+      "description": "LST-AI results including lesion segmentation masks and statistics",
+      "datatype": "generic/directory"
     }
   ]
 }
